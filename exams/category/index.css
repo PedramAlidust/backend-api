@@ -1,0 +1,12 @@
+.tab-wrap .tablink.tab-active {
+  color: #946e5f;
+  background-color: #fff;
+}
+
+.tab-wrap .tabcontent {
+  display: none;
+  padding: 40px 10px;
+}
+.tab-wrap .tabcontent.active {
+  display: block;
+}

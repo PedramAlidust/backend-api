@@ -1,0 +1,24 @@
+.accordion .contentBx .label .show {
+  display: flex;
+}
+.accordion .contentBx.active .label .show {
+  display: none;
+}
+.accordion .contentBx .label .hide {
+  display: none;
+}
+.accordion .contentBx.active .label .hide {
+  display: flex;
+}
+.accordion .contentBx .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  text-align: justify;
+}
+.accordion .contentBx .content p {
+  padding: 10px;
+}
+.accordion .contentBx.active .content {
+  max-height: 300px;
+}

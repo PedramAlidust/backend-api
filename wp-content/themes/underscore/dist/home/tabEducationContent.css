@@ -1,0 +1,18 @@
+.tab-wrap .tablink {
+  background-color: #e9ecee;
+}
+.tab-wrap .tablink span {
+  color: #83909e;
+}
+.tab-wrap .tablink.tab-active span {
+  color: #946e5f;
+}
+.tab-wrap .tablink.tab-active {
+  background-color: #fff;
+}
+.tab-wrap .tabcontent {
+  display: none;
+}
+.tab-wrap .tabcontent.active {
+  display: block;
+}
