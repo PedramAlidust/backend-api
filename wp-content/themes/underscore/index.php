@@ -296,7 +296,7 @@ $options = get_option('my_options'); // unique id of the framework
                             </p>
                         </div>
 
-                        <div class="absolute bottom-0 right-0 lg:-right-14  ">
+                        <div class="absolute bottom-0 right-0 lg:-right-14 hidden md:block">
                             <img src="<?php echo $options['opt-accordion-1']['testimonial-desc-image-right']['url'] ?>" alt="ashkan" class="w-44 h-fit object-cover">
                         </div>
                         <div class="absolute bottom-6 left-3">

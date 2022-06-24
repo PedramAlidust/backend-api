@@ -663,7 +663,7 @@ if (class_exists('CSF')) {
 					array(
 						'type'    => 'heading',
 						'content' => 'تنظیمات محاسبه نتیجه آزمون',
-					  ),
+					),
 					array(
 						'id'    => 'MinNumberToDown',
 						'type'  => 'text',
@@ -705,9 +705,145 @@ if (class_exists('CSF')) {
 	));
 
 
+
+	//About us section
+	CSF::createSection($prefix, array(
+		'title'  => 'تنظیمات درباره ما',
+		'fields' => array(
+			// A text field
+			array(
+				'id'        => 'about-us-section',
+				'type'      => 'group',
+				'title'     => 'ایجاد قسمت درباره ما',
+				'fields'    => array(
+					array(
+						'id'    => 'AboutUsTitle',
+						'type'  => 'text',
+						'title' => 'عنوان درباره ما',
+					),
+					array(
+						'id'    => 'AboutUsDescTitle',
+						'type'  => 'text',
+						'title' => 'عنوان توضیحات درباره ما',
+					),
+					array(
+						'id'    => 'AboutUsImage',
+						'type'  => 'media',
+						'title' => 'تصویر درباره ما را وارد کنید',
+					),
+					array(
+						'id'    => 'AboutUsDesc',
+						'type'  => 'textarea',
+						'title' => 'توضیحات درباره ما',
+					),
+					array(
+						'id'    => 'AboutUsDesc2',
+						'type'  => 'textarea',
+						'title' => 'توضیحات درباره ما2',
+					),
+					array(
+						'id'    => 'AboutUsDesc3',
+						'type'  => 'textarea',
+						'title' => 'توضیحات درباره ما3',
+					),
+
+				),
+			),
+		)
+	));
+
+
+	//About us section
+	CSF::createSection($prefix, array(
+		'title'  => 'تنظیمات تماس با ما',
+		'fields' => array(
+			// A text field
+			array(
+				'id'        => 'contact-us-section',
+				'type'      => 'group',
+				'title'     => 'ایجاد قسمت تماس با ما',
+				'fields'    => array(
+					array(
+						'id'    => 'AddressTitle',
+						'type'  => 'text',
+						'title' => 'عنوان آدرس',
+					),
+					array(
+						'id'    => 'AddressDesc',
+						'type'  => 'textarea',
+						'title' => 'توضیحات آدرس',
+					),
+
+					array(
+						'id'    => 'CallNumberTitle',
+						'type'  => 'text',
+						'title' => 'عنوان شماره های تماس ',
+					),
+					array(
+						'id'    => 'CallNumber',
+						'type'  => 'text',
+						'title' => 'شماره تماس',
+					),
+					array(
+						'id'    => 'CallNumber2',
+						'type'  => 'text',
+						'title' => 'شماره تماس دوم',
+					),
+
+				),
+			),
+		)
+	));
+
+
+	//backup section
+	CSF::createSection($prefix, array(
+		'title'  => 'ایجاد بک آپ',
+		'fields' => array(
+			array(
+				'type' => 'backup',
+			),
+		)
+	));
+
+
+	//Creat Contact us endpoint
+	add_action('rest_api_init', function () {
+		function DspContactUs()
+		{
+			$options_data = get_option('my_options');
+			$endpoint_data = $options_data['contact-us-section'];
+			return $endpoint_data;
+		}
+
+		register_rest_route('/ashkan/v1', 'contactus', [
+			'methods' => 'GET',
+			'callback' => 'DspContactUs'
+		]);
+	});
+
+
+
+	//Creat About us endpoint
+	add_action('rest_api_init', function () {
+		function DspAboutUs()
+		{
+			$options_data = get_option('my_options');
+			$endpoint_data = $options_data['about-us-section'];
+			return $endpoint_data;
+		}
+
+		register_rest_route('/ashkan/v1', 'aboutus', [
+			'methods' => 'GET',
+			'callback' => 'DspAboutUs'
+		]);
+	});
+
+
+
 	//create exams endpoint
 	add_action('rest_api_init', function () {
-		function DspApi()
+		function DspExamApi()
 		{
 			$options_data = get_option('my_options');
 			$endpoint_data = $options_data['exams-section'];
@@ -716,8 +852,7 @@ if (class_exists('CSF')) {
 
 		register_rest_route('/ashkan/v1', 'exams', [
 			'methods' => 'GET',
-			'callback' => 'DspApi'
+			'callback' => 'DspExamApi'
 		]);
 	});
 }
-
