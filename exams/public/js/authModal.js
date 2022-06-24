@@ -22,27 +22,6 @@ const forgetPasswordTabBtns = document.querySelectorAll(
   ".forget-password-tab-btn"
 );
 
-const handleClickAuthButton = (btn) => {
-  btn.onclick = function () {
-    authModal.style.display = "block";
-  };
-};
-const handleShowAuthDialog = () => {
-  [...authBtns].map((btn) => handleClickAuthButton(btn));
-};
-handleShowAuthDialog();
-
-// When the user clicks on <span> (x), close the modal
-closeBtn.onclick = function () {
-  authModal.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == authModal) {
-    authModal.style.display = "none";
-  }
-};
 
 // handle click on register btns
 for (let loginTabBtn of loginTabBtns) {
